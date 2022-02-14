@@ -5,7 +5,6 @@ Send UDP packets to a particular address and port.
 Alpha: 13FEB22
 '''
 
-
 import socket
 import time
 from datetime import datetime
@@ -13,6 +12,9 @@ import settings.udp as settings
 
 UDP_IP = settings.UDP["SERVER_UDP_IPv4"]
 UDP_PORT = settings.UDP["SERVER_PORT"]
+
+print(f'This is the UDP client, it will try to connect to a server at {UDP_IP}:{UDP_PORT} in the settings file.')
+print('This script has no error handling, by design')
 
 while True:
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
