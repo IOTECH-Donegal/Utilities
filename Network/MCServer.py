@@ -15,7 +15,7 @@ MCAST_IF_IP = settings.MCSERVER["IP_ADDRESS"]
 
 print('This is the server.')
 print(f'Make sure its IP address matches {MCAST_IF_IP} in settings.')
-print(f'This selects which interface is used to listen for multicast on {MCAST_GRP}.')
+print(f'This selects which interface is used to listen for multicast as {MCAST_GRP}.')
 print('This script has no error handling, by design.')
 
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:

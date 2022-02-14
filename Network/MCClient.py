@@ -15,8 +15,8 @@ MCAST_GRP = settings.MCCLIENT["MCAST_GROUP"]
 MCAST_PORT = settings.MCCLIENT["PORT"]
 MCAST_IF_IP = settings.MCCLIENT["IP_ADDRESS"]
 
-print(f'This is the client, make sure its IP address matches {MCAST_IF_IP} in settings')
-print('This selects which interface is used for multicast ')
+print(f'This is the client, make sure its IP address matches {MCAST_IF_IP} in settings.')
+print(f'This selects which interface is used for multicast to {MCAST_GRP}.')
 print('This script has no error handling, by design')
 
 while True:
