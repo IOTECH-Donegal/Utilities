@@ -13,7 +13,7 @@ import settings.tcp as settings
 TCP_IP = settings.TCP["SERVER_TCP_IPv4"]
 TCP_PORT = settings.TCP["SERVER_PORT"]
 
-print(f'This is the TCP client, it will try to connect to a server at {TCP_IP}:{TCP_PORT} in settings.')
+print(f'This is the TCP client, it will try to connect to a server at {TCP_IP}:{TCP_PORT} in the settings file.')
 print('This script has no error handling, by design')
 
 BUFFER_SIZE = 1024

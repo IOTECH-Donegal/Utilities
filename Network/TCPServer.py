@@ -13,7 +13,7 @@ TCP_PORT = settings.TCP["SERVER_PORT"]
 BUFFER_SIZE = 1024
 
 print(f'This is the TCP server, it will open a port at {TCP_IP}:{TCP_PORT} and being listening')
-print(f'Make sure the actual server IP address matches {TCP_IP} in settings')
+print(f'Make sure the actual server IP address matches {TCP_IP} in the settings file')
 print('This script has no error handling, by design')
 
 try:
