@@ -1,6 +1,7 @@
 # Utilities
 From time to time, I need to test new system's communications.
-For that, I needed a set of utilities that just worked.
+For that, I needed a set of utilities that just worked. 
+These utilities can also be used as the basis for including comms in an application.
 
 ## Network
 In this repo, there is simple network sample code for
