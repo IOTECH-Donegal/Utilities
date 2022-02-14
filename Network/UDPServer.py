@@ -1,0 +1,26 @@
+'''
+UDPServer by: JOR
+Listens for packets on a particular address and port.
+
+Alpha: 13FEB22
+'''
+
+import socket
+import settings.udp as settings
+
+UDP_IP = settings.UDP["SERVER_UDP_IPv4"]
+UDP_PORT = settings.UDP["SERVER_PORT"]
+BUFFER_SIZE = 1024
+
+print(f'Make sure the server IP address matches {UDP_IP} in settings')
+print('This script has no error handling, by design')
+
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    s.bind( (UDP_IP, UDP_PORT) )
+    print('Listening on', UDP_IP)
+    while True:
+        data, addr = s.recvfrom(BUFFER_SIZE)
+        data = data.decode()
+        print(addr, data)
+
