@@ -15,11 +15,13 @@ MCAST_GRP = settings.MCCLIENT["MCAST_GROUP"]
 MCAST_PORT = settings.MCCLIENT["PORT"]
 MCAST_IF_IP = settings.MCCLIENT["IP_ADDRESS"]
 
-print(f'Make sure the server IP address matches {MCAST_IF_IP} in settings')
+print(f'This is the client, make sure its IP address matches {MCAST_IF_IP} in settings')
+print('This selects which interface is used for multicast ')
 print('This script has no error handling, by design')
 
 while True:
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) as s:
+        # inet_aton converts IPv4 from the a dotted decimal string to 32 bit packed binary format
         s.setsockopt(socket.SOL_IP, socket.IP_MULTICAST_IF, socket.inet_aton(MCAST_IF_IP))
         message_text = f"IOTECH {datetime.now()}"
         message = message_text.encode('utf-8')
