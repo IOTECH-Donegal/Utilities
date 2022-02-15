@@ -21,10 +21,7 @@ print('This script has no error handling, by design.')
 with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
     s.bind(SERVER_ADDRESS)
     # inet_aton converts IPv4 from the a dotted decimal string to 32 bit packed binary format
-    group = socket.inet_aton(MCAST_GRP)
-    # Packs as two groups of 4 * bytes
-    mreq = struct.pack('4s4s', group, socket.inet_aton(MCAST_IF_IP))
-    s.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+    s.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, socket.inet_aton(MCAST_GRP) + socket.inet_aton(MCAST_IF_IP))
 
     while True:
         print('Waiting to receive message')
