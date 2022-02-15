@@ -22,7 +22,7 @@ print('This script has no error handling, by design')
 while True:
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) as s:
         # inet_aton converts IPv4 from the a dotted decimal string to 32 bit packed binary format
-        s.setsockopt(socket.SOL_IP, socket.IP_MULTICAST_IF, socket.inet_aton(MCAST_IF_IP))
+        s.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, socket.inet_aton(MCAST_GRP) + socket.inet_aton(MCAST_IF_IP))
         message_text = f"IOTECH {datetime.now()}"
         message = message_text.encode('utf-8')
         s.sendto(message, (MCAST_GRP, MCAST_PORT))
